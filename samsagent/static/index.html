@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SamsAgent · Research</title><link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script></head>
+<body>
+<aside><div class="brand">Sams<span>Agent</span><small>LOCAL RESEARCH LAB</small></div><button id="new" class="primary">+ New research</button><nav id="sessions" aria-label="Research sessions"></nav><div id="connection" role="status">Connecting…</div></aside>
+<main>
+<header><div><div class="eyebrow">RESEARCH WORKSPACE</div><h1 id="title">What are we investigating?</h1></div><span id="status" class="badge">Ready</span></header>
+<div id="error" role="alert" hidden></div>
+<section id="setup"><p class="intro">Give your agent a question. It can gather evidence, run experiments, and bring in other agents along the way.</p>
+<form id="create"><label for="goal">Question or objective</label><textarea id="goal" required maxlength="12000" rows="4" placeholder="Investigate a question and test the most promising explanation…"></textarea>
+<label for="criteria">What would a good result include?</label><textarea id="criteria" maxlength="8000" rows="2" placeholder="A cited report, a reproducible experiment, and a comparison of results"></textarea>
+<label class="toggle"><input id="goalMode" type="checkbox" checked> Goal mode <span>Keep working until reviewed completion or a blocker</span></label>
+<details><summary>Optional research budgets</summary><div class="budgets"><label>Tokens<input id="tokenBudget" type="number" min="1" placeholder="No limit"></label><label>Active minutes<input id="timeBudget" type="number" min="1" placeholder="No limit"></label></div></details>
+<button class="primary" type="submit">Start research →</button></form></section>
+<section id="workspace" hidden>
+<div class="toolbar"><span id="usage"></span><div><button data-control="pause">Pause</button><button data-control="resume">Resume</button><button data-control="cancel" class="danger">Cancel</button></div></div>
+<div class="columns"><section class="conversation"><h2>Conversation</h2><div id="messages" aria-live="polite"></div><form id="followup"><label for="message">Steer the research</label><textarea id="message" rows="2" required maxlength="32000" placeholder="Add context, change direction, or answer a blocker…"></textarea><button type="submit" class="primary">Send message</button></form></section>
+<section class="details"><h2>Agents</h2><div id="agents"></div><h2>Workflows</h2><div id="workflows"></div><h2>Research notes</h2><pre id="notes"></pre><h2>Artifacts</h2><div id="artifacts"></div></section></div>
+<details class="activity"><summary>Activity log</summary><pre id="activity"></pre></details>
+</section>
+</main></body></html>

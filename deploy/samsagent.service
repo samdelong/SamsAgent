@@ -1,0 +1,20 @@
+[Unit]
+Description=SamsAgent research harness
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/samsagent
+ExecStart=/opt/samsagent/.venv/bin/samsagent --config /opt/samsagent/config.toml
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+# Keep tracked experiments alive across harness restarts; Cancel terminates them explicitly.
+KillMode=process
+Environment=PYTHONUNBUFFERED=1
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

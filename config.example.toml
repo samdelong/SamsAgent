@@ -1,0 +1,23 @@
+ollama_url = "http://127.0.0.1:11434" # Change to the Ollama host reachable from EC2.
+model = "YOUR_TOOL_CAPABLE_MODEL_TAG"
+data_dir = "./data"
+context_tokens = 16384
+output_tokens = 2048
+inference_concurrency = 1
+agent_concurrency = 8
+max_depth = 3
+port = 8765
+# Add the exact Tailscale Serve hostname shown on your EC2 machine.
+allowed_hosts = ["localhost", "127.0.0.1", "research.YOUR-TAILNET.ts.net"]
+
+# Optional external servers; machine tools are always included.
+# [mcp.browser]
+# command = "YOUR_MCP_EXECUTABLE"
+# args = ["--some-option"]
+# [mcp.browser.env]
+# API_KEY = "..."
+
+# [mcp.remote]
+# url = "http://127.0.0.1:9000/mcp"
+# [mcp.remote.headers]
+# Authorization = "Bearer ..."
